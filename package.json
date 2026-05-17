@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "optimize-images": "node --experimental-specifier-resolution=node scripts/optimize-images.js"
+    ,"map-images": "node --experimental-specifier-resolution=node scripts/map-images-to-data.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
