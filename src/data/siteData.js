@@ -123,7 +123,7 @@ export const lensCategories = [
 export const marketingPlans = [
   {
     title: 'Starter Social',
-    price: '$280/mes',
+    price: 'Desde $150',
     icon: Instagram,
     benefits: [
       'Calendario mensual de contenido',
@@ -146,7 +146,7 @@ export const marketingPlans = [
   },
   {
     title: 'Web Profesional',
-    price: 'Desde $450',
+    price: 'Desde $350',
     icon: Globe2,
     benefits: [
       'Sitio React responsive',
@@ -193,26 +193,22 @@ export const portfolioItems = [
   {
     title: 'Retrato profesional',
     category: 'Fotografia',
-    image:
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80',
+    image: '/images/retrato_mujer_1.jpg',
   },
   {
     title: 'Contenido para negocios',
     category: 'Marketing',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80',
+    image: '/images/contenido_negocios_1.jpg',
   },
   {
     title: 'Sitios web empresariales',
     category: 'Web Dev',
-    image:
-      'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=900&q=80',
+    image: '/images/web_empresarial_1.jpg',
   },
   {
     title: 'Video social',
     category: 'Video',
-    image:
-      'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80',
+    image: '/images/video_social_1.jpg',
   },
 ];
 
@@ -223,7 +219,7 @@ export const serviceGroups = [
     icon: Film,
     href: '/servicios/lens',
     description:
-      'Sesiones al aire libre, videografia y estudio fotografico en desarrollo.',
+      'Sesiones al aire libre y videografía profesional. Los precios pueden variar según la complejidad del proyecto y la estrategia recomendada; solicite una cotización por WhatsApp o redes sociales.',
   },
   {
     title: 'MARKETING',
@@ -231,7 +227,7 @@ export const serviceGroups = [
     icon: PenTool,
     href: '/servicios/marketing',
     description:
-      'Gestion de redes, contenido profesional, pauta, identidad visual y comercio digital.',
+      'Gestión de redes, contenido profesional y campañas publicitarias. Los precios pueden variar según alcance y frecuencia; contacte para una cotización personalizada.',
   },
   {
     title: 'WEB DEV',
@@ -239,14 +235,17 @@ export const serviceGroups = [
     icon: Code2,
     href: '/servicios/marketing',
     description:
-      'Portafolios, sitios corporativos, landing pages y formularios de contacto.',
+      'Portafolios y sitios corporativos responsivos. Los precios pueden variar según funcionalidades; solicite cotización por WhatsApp o redes sociales.',
   },
   {
     title: 'DRAFT',
-    subtitle: 'Unidad tecnica coming soon',
+    subtitle: 'Unidad técnica — soluciones visuales y técnicas',
     icon: Blocks,
     href: '/servicios/draft',
     description:
-      'CAD, fotogrametria con dron y soluciones visuales para proyectos tecnicos.',
+      'CAD, fotogrametría con dron y soluciones visuales. Los precios se determinan por requerimientos del proyecto; pida una cotización por los canales de contacto.',
   },
 ];
+
+export const pricingNotice =
+  'Los precios pueden variar según el caso y la estrategia de trabajo. Recomendamos solicitar una cotización por WhatsApp o redes sociales para obtener un presupuesto preciso.';
