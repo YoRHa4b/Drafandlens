@@ -29,7 +29,7 @@ export default function Gallery({ category }) {
               index === 0 ? 'md:col-span-2 md:row-span-2' : ''
             } ${index === 3 ? 'md:col-span-2' : ''}`}
           >
-            <img src={image} alt={`${category.title} muestra ${index + 1}`} className="h-full w-full object-cover" />
+            <img src={image} alt={`${category.title} muestra ${index + 1}`} loading="lazy" className="h-full w-full object-cover" />
             <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-brand-dark/75 to-transparent p-5 text-sm font-bold text-brand-white">
               Draft & Lens / {category.title}
             </figcaption>

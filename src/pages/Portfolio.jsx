@@ -22,7 +22,7 @@ export default function Portfolio() {
             transition={{ delay: index * 0.07 }}
             className="overflow-hidden rounded-3xl border border-brand-border bg-brand-white shadow-soft"
           >
-            <img src={item.image} alt={item.title} className="h-72 w-full object-cover" />
+            <img src={item.image} alt={item.title} loading="lazy" className="h-72 w-full object-cover" />
             <div className="p-5">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-accent">{item.category}</p>
               <h2 className="mt-2 font-serif text-2xl font-bold text-brand-primary">{item.title}</h2>

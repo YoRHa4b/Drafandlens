@@ -12,7 +12,7 @@ Sitio web profesional para **Draft & Lens**, empresa de servicios audiovisuales,
 ✅ **Responsive 100%** - Diseño mobile-first optimizado para todos los dispositivos  
 ✅ **Animaciones elegantes** - Transiciones suaves con Framer Motion  
 ✅ **Rutas inteligentes** - Segmentación dinámica por tipo de cliente (Quinceañeras, Negocios, Profesionales)  
-✅ **Formulario de contacto** - Integración con EmailJS para recibir solicitudes  
+✅ **Formulario de contacto** - Integración con Formspree para envío real de mensajes  
 ✅ **Botón WhatsApp flotante** - Contacto directo con mensaje pre-configurado  
 ✅ **SEO optimizado** - Meta tags y estructura semántica  
 ✅ **Paleta profesional** - Colores personalizados para identidad visual  
@@ -104,24 +104,47 @@ npm run deploy      # Deploy automático a GitHub Pages (requiere gh-pages insta
 
 ---
 
-## 📧 **Configuración de EmailJS**
+## 📧 **Configuración de Formspree**
 
-Para activar el formulario de contacto:
+Este sitio usa la integración de React con Formspree para enviar los mensajes.
 
-1. Ve a [EmailJS.com](https://www.emailjs.com/)
-2. Crea una cuenta gratuita
-3. Configura un servicio de email (Gmail, Outlook, etc.)
-4. Obtén tu **Service ID**, **Template ID** y **Public Key**
-5. Actualiza `src/components/ContactForm.jsx`:
+1. El formulario ya está apuntando a tu formulario activo en Formspree.
+2. No es necesario crear un servicio de EmailJS.
+3. El formulario envía directamente a tu endpoint de Formspree:
 
-```javascript
-emailjs.sendForm(
-  'YOUR_SERVICE_ID',      // ← Reemplaza
-  'YOUR_TEMPLATE_ID',     // ← Reemplaza
-  form.current,
-  'YOUR_PUBLIC_KEY'       // ← Reemplaza
-)
+```text
+https://formspree.io/f/xojbakjv
 ```
+
+4. Si deseas cambiar el formulario, actualiza la clave en `src/components/ContactForm.jsx`.
+
+### Ver el estado de envío
+- El mensaje muestra confirmación cuando la solicitud se envía.
+- Si necesitas cambiar el correo receptor, configura el mismo formulario en Formspree.
+
+---
+
+## 🖼️ **Agregar tus propias fotos**
+
+Para mostrar tu trabajo real, usa imágenes locales o URLs externas:
+
+### Opción 1: Fotos locales en el sitio
+1. Crea la carpeta `public/images`.
+2. Copia tus fotos dentro de `public/images/`.
+3. En `src/data/siteData.js`, reemplaza cualquier URL de ejemplo con rutas como:
+
+```js
+image: '/images/mi-foto-1.jpg'
+```
+
+4. Vuelve a ejecutar `npm run build` y despliega.
+
+### Opción 2: Fotos alojadas en Google Drive
+1. Sube tu imagen a Google Drive.
+2. Configura el enlace para compartir como público.
+3. Usa una URL directa de imagen en `src/data/siteData.js`.
+
+> Nota: GitHub Pages sirve mejor imágenes locales en `public/images`.
 
 ---
 

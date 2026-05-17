@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { Mail, Send } from 'lucide-react';
 
 const serviceOptions = [
@@ -12,39 +11,54 @@ const serviceOptions = [
 ];
 
 export default function ContactForm() {
-  const form = useRef();
+  const formRef = useRef(null);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setLoading(true);
+    setError('');
 
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
-        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID
-        form.current,
-        'YOUR_PUBLIC_KEY' // Reemplaza con tu Public Key
-      )
-      .then(() => {
-        setSent(true);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error sending email:', error);
-        setLoading(false);
+    try {
+      const response = await fetch('https://formspree.io/f/xojbakjv', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: new FormData(formRef.current),
       });
+
+      const data = await response.json();
+      setLoading(false);
+
+      if (response.ok) {
+        setSent(true);
+        formRef.current.reset();
+      } else {
+        setError(data.error || 'Ocurrió un problema al enviar el formulario.');
+      }
+    } catch (err) {
+      setLoading(false);
+      setError('No se pudo conectar con Formspree. Intenta de nuevo.');
+      console.error(err);
+    }
   }
 
   return (
-    <form ref={form} onSubmit={handleSubmit} className="rounded-[2rem] border border-brand-border bg-brand-white p-5 shadow-soft sm:p-7">
+    <form
+      id="contact-form"
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className="rounded-[2rem] border border-brand-border bg-brand-white p-5 shadow-soft sm:p-7"
+    >
       <div className="flex items-center gap-3">
         <span className="grid size-12 place-items-center rounded-2xl bg-brand-primary text-brand-accent">
           <Mail size={22} />
         </span>
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">EmailJS Ready</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-accent">Formulario activo</p>
           <h2 className="font-serif text-3xl font-bold text-brand-primary">Hablemos de tu proyecto</h2>
         </div>
       </div>
@@ -59,6 +73,7 @@ export default function ContactForm() {
             placeholder="Tu nombre"
           />
         </label>
+
         <label className="text-sm font-bold text-brand-primary">
           Email
           <input
@@ -69,6 +84,7 @@ export default function ContactForm() {
             placeholder="tu@email.com"
           />
         </label>
+
         <label className="text-sm font-bold text-brand-primary">
           Servicio de interes
           <select
@@ -85,6 +101,7 @@ export default function ContactForm() {
             ))}
           </select>
         </label>
+
         <label className="text-sm font-bold text-brand-primary">
           Mensaje
           <textarea
@@ -107,6 +124,11 @@ export default function ContactForm() {
       {sent && (
         <p className="mt-4 rounded-2xl bg-brand-surface p-3 text-sm font-semibold text-brand-primary">
           ¡Mensaje enviado! Te contactaremos pronto.
+        </p>
+      )}
+      {error && (
+        <p className="mt-4 rounded-2xl bg-red-100 p-3 text-sm font-semibold text-brand-dark">
+          {error}
         </p>
       )}
     </form>
