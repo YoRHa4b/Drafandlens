@@ -21,9 +21,11 @@ export const company = {
   name: 'Draft & Lens',
   location: 'Santa Barbara, Honduras',
   email: 'draftandlens@email.com',
-  whatsapp: '50499999999',
-  instagram: 'https://instagram.com/',
-  facebook: 'https://facebook.com/',
+  // Display and normalized WhatsApp number
+  whatsappDisplay: '+504 3238 1211',
+  whatsapp: '50432381211',
+  instagram: 'https://www.instagram.com/draf_and_lens?igsh=Mjc3OXg3ZDNidjlk',
+  facebook: 'https://www.facebook.com/share/15obf33c4Ut/',
 };
 
 export const heroSlides = [
@@ -114,7 +116,7 @@ export const lensCategories = [
     images: [
       'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80',
       'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80',
       'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80',
     ],
   },
@@ -193,24 +195,29 @@ export const portfolioItems = [
   {
     title: 'Retrato profesional',
     category: 'Fotografia',
-    image: '/images/retrato_mujer_1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Contenido para negocios',
     category: 'Marketing',
-    image: '/images/contenido_negocios_1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Sitios web empresariales',
     category: 'Web Dev',
-    image: '/images/web_empresarial_1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
   },
   {
     title: 'Video social',
     category: 'Video',
-    image: '/images/video_social_1.jpg',
+    image:
+      'https://images.unsplash.com/photo-1510414696678-2415ad8474aa?auto=format&fit=crop&w=900&q=80',
   },
 ];
+
 
 export const serviceGroups = [
   {
